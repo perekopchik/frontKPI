@@ -1,42 +1,70 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title></title>
+    <meta charset="UTF-8">
+    <title>Title</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-</head>
 
+    <style type="text/css">
+        table{
+            width: 200px;
+            border: 1px solid black;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+        td{
+            padding: 15px;
+            border: 1px solid black;
+        }
+        tbody tr:nth-child(1){
+            background-color: #248f8f;
+        }
+        tbody tr:nth-child(1):hover{
+            color: #71E04A;
+            background: #944120;
+        }
+        tbody tr:nth-child(2){
+            background-color: #f5f524;
+        }
+        tbody tr:nth-child(2):hover{
+            color: #E0C64A;
+            background: #e70b0b;
+        }
+    </style>
+</head>
 <body>
     <table>
         <tr>
-            <th colspan="2" rowspan="2">Перекопайко</th>
-            <th>Кирило</th>
-            <th>Андрійович</th>
-        </tr>
-        <tr class="bg">
-            <td>ІК-01</td>
-            <td>ЛР-2</td>
-        </tr>
-        <tr>
-            <td colspan="2"></td>
+            <td >Перекопайко</td>
+            <td>Кирило</td>
+            <td rowspan="2">Андрійович</td>
             <td></td>
             <td rowspan="2"></td>
         </tr>
-        <td></td>
-        <td></td>
+        <tr>
+            <td colspan="2">ІК-01</td>
+            <td>Лр2 вар.14</td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+            <td colspan="3"></td>
+        </tr>
     </table>
-    <div class="v4_32">
-        <div class="v4_33">
+
+    <div class="h"></div>
+    <div class="v"></div>
+    <div class="big_circle">
+        <div class="small_circle">
+            <div class="smallest_circle"></div>
         </div>
-        <div class="v4_34"></div>
-        <div class="v4_35">
+    </div>
+
+    <div class="h2_2"></div>
+    <div class="v2_2"></div>
+    <div class="big_circle1">
+        <div class="small_circle1">
+            <div class="smallest_circle1"></div>
         </div>
-        <div class="v4_36">
-        </div>
-        <div class="v4_37"></div>
-        <div class="v4_38"></div>
     </div>
 </body>
-
 </html>

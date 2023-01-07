@@ -1,62 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk"> 
+    <head>
+        <title>Перекопайко ІК-01 </title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="Мова розмітки HTML-5" />
+        <meta name="description" content="HTML, Git, розмітка" />
+        <link rel="stylesheet" href="style.css">
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-
-<body>
-    <div id='maindiv'>
-        <form id='form'>
-            <ul>
-                <li>
-                    <label>Прізвище та ініціали:</label>
-                    <input id="name" name="name">
-                </li>
-                <li>
-                    <label>Група:</label>
-                    <input id="mail" name="group">
-                </li>
-                <li>
-                    <label>Варіант:</label>
-                    <textarea name="variant"></textarea>
-                </li>
-                <li>
-                    <label>Номер:</label>
-                    <textarea name="number"></textarea>
-                </li>
-                <li>
-                    <label for="email">Mail:</label>
-                    <textarea type="email" name="mail"></textarea>
-                </li>
-                <button class="button" type="submit">Відправити</button>
-            </ul>
-        </form>
-
-
-        <div id='showData'>
-            Response here
-        </div>
-
-        <div>
-            <p>Виберіть колір:</p>
-
-            <div>
-                <input type="color" id="colored">
+    <body>
+        <div id="task1">        
+            <div id="container">
+               
+                <form id="form">
+                    <div class="form_field">
+                        <input type="text" id="name" maxlength="32" placeholder="ПІБ">
+                    </div>
+                    <div class="form_field">
+                        <input type="text" id="id_card" maxlength="10" placeholder="ID-card">
+                    </div>
+                    <div class="form_field">
+                        <input type="text" id="fname" maxlength="4" placeholder="Факультет">
+                    </div>
+                    <div class="form_field">
+                        <input type="text" id="birthday" maxlength="10" placeholder="Дата народження">
+                    </div>
+                    <div class="form_field">
+                        <input type="text" id="address" maxlength="32" placeholder="Адреса"
+                    </div>
+                    <div>
+                        <button type="button" id="button_confirm" onclick="checkValidationForm()" class="button_">Підтвердити</button>
+                    </div>                    
+                </form>            
             </div>
-
-            <div id='squares'>
-
+            <div id="inform">
+                <h3>Введені дані:</h3>
+                <p><b>ПІБ:</b> <span id="inf_name"></span></p>
+                <p><b>ID-card:</b> <span id="inf_id_card"></span></p>
+                <p><b>Факультет:</b> <span id="inf_fname"></span></p>
+                <p><b>Дата народження:</b> <span id="inf_birthday"></span></p>
+                <p><b>Адреса:</b> <span id="inf_address"></span></p>
             </div>
-
         </div>
-    </div>
-    
-    <script src="sript.js"></script>
-
-</body>
-
+        <script src="script.js"></script>
+    </body>
 </html>
