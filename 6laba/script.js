@@ -1,34 +1,63 @@
-const container = document.getElementById('container');
+// Task 1
+const list = document.getElementById('listUsers')
 
-async function getRandomPerson() {
-    const server = 'https://randomuser.me/api';
-    const response = await fetch(server, {
-        method: 'GET',
+function addUsers() {
+  fetch("https://randomuser.me/api/?results=2")
+    .then((results) => {
+      return results.json();
+    })
+    .then((response) => {
+      const user = response.results[0];
+      const person = new Person(
+        user.picture,
+        user.name,
+        user.location.city,
+        user.location.postcode,
+        user.phone);
+      person.listUsers();
     });
-
-    const responseResult = await response.json();
-    return responseResult.results[0];
 }
 
-async function add() {
-    const person = await getRandomPerson();
-
-    const temple = `
-    <div class="card">
-        <div>
-            <img src="${person.picture.medium}" alt="">
-        </div>
-        <div>
-            <p><b>Cell:</b> ${person.cell}</p>
-            <p><b>City:</b> ${person.location.city}</p>
-            <p><b>Email:</b> ${person.email}</p>
-            <p><b>Coordinates:</b> ${person.location.coordinates.latitude} ${person.location.coordinates.longitude} </p>
-        </div>
-    </div>`;
-
-    container.insertAdjacentHTML('afterbegin', temple);
+function removeUsers() {
+  while (list.firstChild) {
+    list.removeChild(list.firstChild)
+  }
 }
 
-function deleteUser() {
-    container.innerHTML = '';
+class Person {
+  constructor(picture, name, city, postcode, phone) {
+    this.picture = picture;
+    this.name = name;
+    this.city = city;
+    this.postcode = postcode;
+    this.phone = phone;
+  }
+    
+  listUsers() {
+    const user = document.createElement('div');
+    user.id = 'user';
+
+    const picture = document.createElement('img');
+    picture.src = this.picture.large;
+    user.appendChild(picture);
+
+    const name = document.createElement('span');
+    name.innerHTML = `Name: <em>${this.name.title} ${this.name.first} ${this.name.last}</em>`
+    user.appendChild(name);
+    
+    const city = document.createElement('span');
+    city.innerHTML = `City: <em>${this.city}</em>`;
+    user.appendChild(city);
+    
+    const postcode = document.createElement('span');
+    postcode.innerHTML = `Postcode: <em>${this.postcode}</em>`;
+    user.appendChild(postcode);
+    
+    const phone = document.createElement('span');
+    phone.innerHTML = `Phone: <em>${this.phone}</em>`;
+    user.appendChild(phone);
+    
+    list.appendChild(user);
+    console.log(this.picture, `${this.name.title} ${this.name.first} ${this.name.last}`, this.city, this.postcode, this.phone);
+  }
 }
